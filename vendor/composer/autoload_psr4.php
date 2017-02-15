@@ -6,6 +6,7 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'WhiteOctober\\PagerfantaBundle\\' => array($vendorDir . '/white-october/pagerfanta-bundle'),
     'Tests\\' => array($baseDir . '/tests'),
     'Symfony\\Polyfill\\Util\\' => array($vendorDir . '/symfony/polyfill-util'),
     'Symfony\\Polyfill\\Php70\\' => array($vendorDir . '/symfony/polyfill-php70'),
@@ -14,6 +15,7 @@ return array(
     'Symfony\\Component\\' => array($vendorDir . '/symfony/symfony/src/Symfony/Component'),
     'Symfony\\Bundle\\SwiftmailerBundle\\' => array($vendorDir . '/symfony/swiftmailer-bundle'),
     'Symfony\\Bundle\\MonologBundle\\' => array($vendorDir . '/symfony/monolog-bundle'),
+    'Symfony\\Bundle\\AsseticBundle\\' => array($vendorDir . '/symfony/assetic-bundle'),
     'Symfony\\Bundle\\' => array($vendorDir . '/symfony/symfony/src/Symfony/Bundle'),
     'Symfony\\Bridge\\Twig\\' => array($vendorDir . '/symfony/symfony/src/Symfony/Bridge/Twig'),
     'Symfony\\Bridge\\Swiftmailer\\' => array($vendorDir . '/symfony/symfony/src/Symfony/Bridge/Swiftmailer'),
@@ -31,6 +33,7 @@ return array(
     'Doctrine\\Instantiator\\' => array($vendorDir . '/doctrine/instantiator/src/Doctrine/Instantiator'),
     'Doctrine\\Common\\Cache\\' => array($vendorDir . '/doctrine/cache/lib/Doctrine/Common/Cache'),
     'Doctrine\\Common\\' => array($vendorDir . '/doctrine/common/lib/Doctrine/Common'),
+    'Doctrine\\Bundle\\FixturesBundle\\' => array($vendorDir . '/doctrine/doctrine-fixtures-bundle'),
     'Doctrine\\Bundle\\DoctrineCacheBundle\\' => array($vendorDir . '/doctrine/doctrine-cache-bundle'),
     'Doctrine\\Bundle\\DoctrineBundle\\' => array($vendorDir . '/doctrine/doctrine-bundle'),
     '' => array($baseDir . '/src'),

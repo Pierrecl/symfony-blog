@@ -1,0 +1,69 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    {% block main %}
+        <div class="container">
+          <form id="form_search" method="get" action="{{path('post_search')}}">
+              <div class="input-field col-sx-2">
+                <input id="slug" type="search" name="slug" placeholder="Rechercher un article (Tag, Titre, Catégorie ...)">
+                <label class="label-icon" for="slug"><i class="material-icons">search</i></label>
+              </div>
+          </form>
+            <div class="col-sm-6 center">
+                <p>
+                    <a class="btn btn-primary btn-sm" href="{{ path('blog_posts') }}">
+                        <i class="fa fa-th-large" aria-hidden="true"></i>
+                        Liste des articles
+                    </a>
+                </p>
+            </div>
+            <div class="col-sm-5 center">
+                <p>
+                    <a class="btn btn-primary btn-sm" href="{{ path('blog_categories') }}">
+                        <i class="fa fa-th-list" aria-hidden="true"></i>
+                        Liste des catégories
+                    </a>
+                </p>
+            </div>
+        </div>
+        <div class="container">
+            {% for post in post_com %}
+                <div class="block col-xs-6">
+                    <div class="card card-panel hoverable blue-grey darken-1" style="width: 100%; min-height: 40em;">
+                        <article class="post">
+                            <h4 class="text-align center">
+                                <a href="{{ path('post_show', { slug: post.slug }) }}">
+                                    {{ post.title }}
+                                </a>
+                            </h4>
+                          <div class="card-content">
+                            <p class="card-text flow-text">
+                                <small class="text-muted">
+                                    {{ post.content }}
+                                </small>
+                            </p>
+                          </div>
+                            <div class="card-action">
+                            <p class="post-metadata">
+                                <span class="metadata">
+                                    <i class="fa fa-calendar"></i>
+                                    {{ post.publishedAt|localizeddate('none', 'none', null, null, 'd MMMM') }}</span>
+                                <span class="metadata">
+                                    <i class="fa fa-user"></i>
+                                    {{ post.author }}</span>
+                                    <span class="metadata">
+                                        <i class="fa fa-comments"></i>
+                                              {{post.comments|length}}
+                                      </span>
+                            </p>
+                          </div>
+                        </article>
+                    </div>
+                </div>
+
+            {% endfor %}
+        </div>
+    {% endblock %}
+
+{% endblock %}

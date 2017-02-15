@@ -1,3 +1,23 @@
 app:
     resource: "@AppBundle/Controller/"
     type:     annotation
+
+app_user:
+        resource: "@AppBundle/Resources/config/routing/user.php"
+        prefix:   /user
+
+app_category:
+        resource: "@AppBundle/Resources/config/routing/category.php"
+        prefix:   /category
+
+app_comment:
+        resource: "@AppBundle/Resources/config/routing/comment.php"
+        prefix:   /comment
+
+app_tag:
+        resource: "@AppBundle/Resources/config/routing/tag.php"
+        prefix:   /tag
+
+app_postRepository:
+        resource: "@AppBundle/Resources/config/routing/postRepository.php"
+        prefix:   /

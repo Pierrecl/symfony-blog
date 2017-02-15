@@ -1,0 +1,21 @@
+
+<div class="container">
+{{ form_start(form,{'action': path('blog_login'), 'method': 'POST'}) }}
+      <div class="row">
+        <div class="input-field col s10">
+          <i class="fa fa-user-circle" aria-hidden="true"></i>
+          {{ form_row(form.username) }}
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s6">
+          <i class="fa fa-user-circle" aria-hidden="true"></i>
+          {{ form_row(form.password) }}
+        </div>
+      </div>
+      <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}"/>
+    <button class="btn waves-effect waves-light" type="submit" name="action">Valider
+  </button>
+  {{ form_rest(form) }}
+{{ form_end(form) }}
+</div>

@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+{% block main %}
+  <div class="row">
+    {% for post in posts %}
+    <div class="col s6">
+      <div class="divider"></div>
+        <article class="post">
+            <h3>
+                <a href="{{ path('post_show', { slug: post.slug }) }}">
+                    {{ post.title }}
+                </a>
+            </h3>
+
+            <p class="post-metadata">
+                <span class="metadata"><i class="fa fa-calendar"></i> {{ post.publishedAt|localizeddate('none', 'none', null, null, 'd MMMM')}}</span>
+                <span class="metadata"><i class="fa fa-user"></i> {{ post.author }}</span>
+                <span class="metadata">
+                    <i class="fa fa-comments"></i>
+
+                          {{post.comments|length}}
+
+                  </span>
+            </p>
+            <div class="card-content">
+              <p class="card-text flow-text">
+                  <small class="text-muted">
+                      {{ post.content }}
+                  </small>
+              </p>
+            </div>
+        </article>
+  </div>
+    {% endfor %}
+    {% if posts.haveToPaginate %}
+        <div class="navigation text-center">
+            {{ pagerfanta(posts, 'twitter_bootstrap3_translated', { routeName: 'blog_posts_paginated' }) }}
+        </div>
+    {% endif %}
+  </div>
+{% endblock %}
+
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+  {% block main %}
+
+    {% if app.request.get('_route') == 'admin_post_edit'  %}
+
+        <h1>Modification : </h1>
+
+        {{ form_start(edit_form) }}
+            {{ form_widget(edit_form) }}
+
+            <input type="submit" value="Edit" />
+        {{ form_end(edit_form) }}
+
+        <ul>
+
+  {% endif %}
+
+    {% if app.request.get('_route') == 'admin_post_delete'  %}
+
+    <form action="{{ url('admin_post_delete', { id: post.id }) }}" method="post">
+        <input type="hidden" name="token" value="{{ csrf_token('delete') }}" />
+        <input type="submit" value="delete" class="btn btn-lg btn-block btn-danger" />
+    </form>
+
+    {% endif %}
+
+  {% endblock %}
+
+{% endblock %}

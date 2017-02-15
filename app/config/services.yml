@@ -4,6 +4,11 @@ parameters:
 #    parameter_name: value
 
 services:
-#    service_name:
-#        class: AppBundle\Directory\ClassName
-#        arguments: ["@another_service_name", "plain_value", "%parameter_name%"]
+    app.slugger:
+        class: AppBundle\Utils\Slugger
+
+    app.form.type.tag:
+        class: AppBundle\Form\TagType
+        arguments: ['@doctrine.orm.entity_manager']
+        tags:
+            - { name: form.type }

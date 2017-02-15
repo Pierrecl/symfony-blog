@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    {% block main %}
+
+        <div class="container">
+            {% for category in categories %}
+                <div class="block col-xs-6">
+                    <div class="card card-panel hoverable blue-grey darken-1" style="width: 100%; min-height: 5em;">
+                        <a href="{{ path('list_posts_categories', { id: category.id }) }}">
+                        <article class="post">
+                            <h4 class="text-align center">
+                                    {{ category.name }}
+                            </h4>
+                        </article>
+                          </a>
+                    </div>
+                </div>
+
+            {% endfor %}
+        </div>
+    {% endblock %}
+
+{% endblock %}

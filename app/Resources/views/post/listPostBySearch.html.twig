@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    {% block main %}
+        <div class="container">
+            {% for post in search %}
+                <div class="block col-xs-6">
+                    <div class="card card-panel hoverable blue-grey darken-1" style="width: 100%; min-height: 10em;">
+                        <article class="post">
+                            <h4 class="text-align center">
+                                <a href="{{ path('post_show', { slug: post.slug }) }}">
+                                    {{ post.title }}
+                                </a>
+                            </h4>
+                            <div class="card-content">
+                                <p class="card-text flow-text">
+                                    <small class="text-muted">
+                                        {{ post.content }}
+                                    </small>
+                                </p>
+                            </div>
+                            <div class="card-action">
+                                <p class="post-metadata">
+                                    <span class="metadata">
+                                        <i class="fa fa-calendar"></i>
+                                        {{ post.publishedAt|localizeddate('none', 'none', null, null, 'd MMMM') }}</span>
+                                    <span class="metadata">
+                                        <i class="fa fa-user"></i>
+                                        {{ post.author }}</span>
+                                    <span class="metadata">
+                                        <i class="fa fa-comments"></i>
+                                        {{post.comments|length}}
+                                    </span>
+                                </p>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            {% else %}
+                <div class="well">Aucun article n'a été trouvé ...
+                </div>
+            {% endfor %}
+        </div>
+    {% endblock %}
+
+{% endblock %}

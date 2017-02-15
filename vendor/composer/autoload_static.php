@@ -15,9 +15,14 @@ class ComposerStaticInit0a2fcc43741cce9f826e26f7632f65c5
         '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
         '6a47392539ca2329373e0d33e1dba053' => __DIR__ . '/..' . '/symfony/polyfill-intl-icu/bootstrap.php',
         '32dcc8afd4335739640db7d200c1971d' => __DIR__ . '/..' . '/symfony/polyfill-apcu/bootstrap.php',
+        'ce89ac35a6c330c55f4710717db9ff78' => __DIR__ . '/..' . '/kriswallsmith/assetic/src/functions.php',
     );
 
     public static $prefixLengthsPsr4 = array (
+        'W' => 
+        array (
+            'WhiteOctober\\PagerfantaBundle\\' => 30,
+        ),
         'T' => 
         array (
             'Tests\\' => 6,
@@ -31,6 +36,7 @@ class ComposerStaticInit0a2fcc43741cce9f826e26f7632f65c5
             'Symfony\\Component\\' => 18,
             'Symfony\\Bundle\\SwiftmailerBundle\\' => 33,
             'Symfony\\Bundle\\MonologBundle\\' => 29,
+            'Symfony\\Bundle\\AsseticBundle\\' => 29,
             'Symfony\\Bundle\\' => 15,
             'Symfony\\Bridge\\Twig\\' => 20,
             'Symfony\\Bridge\\Swiftmailer\\' => 27,
@@ -60,12 +66,17 @@ class ComposerStaticInit0a2fcc43741cce9f826e26f7632f65c5
             'Doctrine\\Instantiator\\' => 22,
             'Doctrine\\Common\\Cache\\' => 22,
             'Doctrine\\Common\\' => 16,
+            'Doctrine\\Bundle\\FixturesBundle\\' => 31,
             'Doctrine\\Bundle\\DoctrineCacheBundle\\' => 36,
             'Doctrine\\Bundle\\DoctrineBundle\\' => 31,
         ),
     );
 
     public static $prefixDirsPsr4 = array (
+        'WhiteOctober\\PagerfantaBundle\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/white-october/pagerfanta-bundle',
+        ),
         'Tests\\' => 
         array (
             0 => __DIR__ . '/../..' . '/tests',
@@ -97,6 +108,10 @@ class ComposerStaticInit0a2fcc43741cce9f826e26f7632f65c5
         'Symfony\\Bundle\\MonologBundle\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/monolog-bundle',
+        ),
+        'Symfony\\Bundle\\AsseticBundle\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/symfony/assetic-bundle',
         ),
         'Symfony\\Bundle\\' => 
         array (
@@ -166,6 +181,10 @@ class ComposerStaticInit0a2fcc43741cce9f826e26f7632f65c5
         array (
             0 => __DIR__ . '/..' . '/doctrine/common/lib/Doctrine/Common',
         ),
+        'Doctrine\\Bundle\\FixturesBundle\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/doctrine/doctrine-fixtures-bundle',
+        ),
         'Doctrine\\Bundle\\DoctrineCacheBundle\\' => 
         array (
             0 => __DIR__ . '/..' . '/doctrine/doctrine-cache-bundle',
@@ -183,6 +202,10 @@ class ComposerStaticInit0a2fcc43741cce9f826e26f7632f65c5
     public static $prefixesPsr0 = array (
         'T' => 
         array (
+            'Twig_Extensions_' => 
+            array (
+                0 => __DIR__ . '/..' . '/twig/extensions/lib',
+            ),
             'Twig_' => 
             array (
                 0 => __DIR__ . '/..' . '/twig/twig/lib',
@@ -190,9 +213,31 @@ class ComposerStaticInit0a2fcc43741cce9f826e26f7632f65c5
         ),
         'S' => 
         array (
+            'Stfalcon\\Bundle\\TinymceBundle' => 
+            array (
+                0 => __DIR__ . '/..' . '/stfalcon/tinymce-bundle',
+            ),
             'SensioLabs\\Security' => 
             array (
                 0 => __DIR__ . '/..' . '/sensiolabs/security-checker',
+            ),
+        ),
+        'P' => 
+        array (
+            'Pagerfanta\\' => 
+            array (
+                0 => __DIR__ . '/..' . '/pagerfanta/pagerfanta/src',
+            ),
+        ),
+        'E' => 
+        array (
+            'Evheniy\\MaterializeBundle' => 
+            array (
+                0 => __DIR__ . '/..' . '/evheniy/materialize-bundle',
+            ),
+            'Evheniy\\JqueryBundle' => 
+            array (
+                0 => __DIR__ . '/..' . '/evheniy/jquery-bundle',
             ),
         ),
         'D' => 
@@ -213,6 +258,10 @@ class ComposerStaticInit0a2fcc43741cce9f826e26f7632f65c5
             array (
                 0 => __DIR__ . '/..' . '/doctrine/inflector/lib',
             ),
+            'Doctrine\\Common\\DataFixtures' => 
+            array (
+                0 => __DIR__ . '/..' . '/doctrine/data-fixtures/lib',
+            ),
             'Doctrine\\Common\\Collections\\' => 
             array (
                 0 => __DIR__ . '/..' . '/doctrine/collections/lib',
@@ -220,6 +269,13 @@ class ComposerStaticInit0a2fcc43741cce9f826e26f7632f65c5
             'Doctrine\\Common\\Annotations\\' => 
             array (
                 0 => __DIR__ . '/..' . '/doctrine/annotations/lib',
+            ),
+        ),
+        'A' => 
+        array (
+            'Assetic' => 
+            array (
+                0 => __DIR__ . '/..' . '/kriswallsmith/assetic/src',
             ),
         ),
     );

@@ -1,0 +1,59 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    {% block main %}
+        <div class="container">
+            {% for post in element %}
+            <div cols s3>
+          <article class="post">
+          <h3> {{post.title}} </h3>
+          <p class="card-text flow-text">
+              <small class="text-muted">
+                  {{ post.content }}
+              </small>
+          </p>
+
+          <p class="post-metadata">
+              <span class="metadata">
+                  <i class="fa fa-calendar"></i>
+                  {{ post.publishedAt|localizeddate('none', 'none', null, null, 'd MMMM') }}</span>
+              <span class="metadata">
+                  <i class="fa fa-user"></i>
+                  {{ post.author }}</span>
+          </p>
+        </article>
+      </div>
+        <div class="container">
+        {% for comment in post.comments %}
+        <div class="card-panel grey lighten-4">
+
+              <p class="post-metadata">
+                <a name="comment_{{ comment.id }}"></a>
+                <span class="metada">
+                  <i class="fa fa-user"></i>
+                    {{ comment.author.email }}
+                </span>
+                  <div></div>
+                    <span class="metadata">
+                      <i class="fa fa-calendar"></i>
+                        {{ comment.publishedAt|localizeddate('none', 'none', null, null, 'd MMMM')  }}
+                    </span>
+                </p>
+                <div class="divider"></div>
+                <span class="brown-text text-darken-2">
+                  {{ comment.content }}
+                </span>
+              </div>
+
+            {% else %}
+              <div class="post-comment">
+                    <div class="well">Aucun commentaire n'a encore été posté pour cet article ... </div>
+              </div>
+            {% endfor %}
+            </div>
+        </div>
+        {% endfor %}
+          {% endblock %}
+
+      {% endblock %}

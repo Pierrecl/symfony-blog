@@ -2,12 +2,89 @@
 <html>
     <head>
         <meta charset="UTF-8" />
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
-        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+        <title>{% block title %} TP Blog {% endblock %}</title>
+        {% block stylesheets %}
+          <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+          <link rel="stylesheet" href="{{ asset('css/bootstrap-flatly-3.3.7.min.css') }}">
+          <link rel="stylesheet" href="{{ asset('css/font-awesome-4.6.3.min.css') }}">
+          <link rel="stylesheet" href="{{ asset('css/font-lato.css') }}">
+          <link rel="stylesheet" href="{{ asset('css/bootstrap-datetimepicker.min.css') }}">
+          <link rel="stylesheet" href="{{ asset('css/highlight-solarized-light.css') }}">
+          <link rel="stylesheet" href="{{ asset('css/bootstrap-tagsinput.css') }}">
+        {% endblock %}
+        {%- include "MaterializeBundle:Materialize:css.html.twig" -%}
     </head>
-    <body>
+    <body class="grey lighten-3">
+        {% block javascripts %}
+          <script src="{{ asset('js/jquery-2.2.4.min.js') }}"></script>
+          <script src="{{ asset('js/moment.min.js') }}"></script>
+          <script src="{{ asset('js/bootstrap-3.3.7.min.js') }}"></script>
+          <script src="{{ asset('js/highlight.pack.js') }}"></script>
+          <script src="{{ asset('js/bootstrap-datetimepicker.min.js') }}"></script>
+          <script src="{{ asset('js/bootstrap-tagsinput.min.js') }}"></script>
+          <script src="{{ asset('js/main.js') }}"></script>
+          <script type="text/javascript" src="{{asset('bundles/stfalcontinymce/vendor/tinymce/tinymce.min.js')}}"></script>
+        {% endblock %}
+
+        {% block header %}
+            <header>
+                <div class="navbar nav-wrapper transparent navbar-static-top" role="navigation">
+                    <div class="container">
+                        <div class="navbar-header">
+                            {% if app.request.get('_route') != 'blog_home' %}
+                            <a class="navbar-brand" href="{{ path('blog_home') }}">
+                                  <i class="fa fa-chevron-left" aria-hidden="true"></i> Retour Home
+                            </a>
+                            {% endif %}
+                            <button type="button" class="navbar-toggle"
+                                    data-toggle="collapse"
+                                    data-target=".navbar-collapse">
+                                <span class="sr-only">--</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                        </div>
+                        <div class="navbar-collapse collapse">
+                            <ul class="nav navbar-nav navbar-right">
+                                {% block header_navigation_links %}
+                                  {% if app.request.get('_route') != 'blog_index' %}
+
+                                  <li>
+                                          <a href="{{ path('blog_index') }}">
+                                              <i class="fa fa-home" aria-hidden="true"></i> Index Blog
+                                          </a>
+                                      </li>
+                                  {% endif %}
+                                    {% if is_granted('ROLE_ADMIN') %}
+                                      <li>
+                                            <a href="{{ path('admin_post_index') }}">
+                                                <i class="fa fa-lock" aria-hidden="true"></i> Administration
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="{{ path('admin_post_new') }}">
+                                                <i class="fa fa-plus-square" aria-hidden="true"></i> Ajouter Article
+                                            </a>
+                                        </li>
+
+                                    {% endif %}
+                                {% endblock %}
+
+                                {% if app.user %}
+                                    <li>
+                                        <a href="{{ path('blog_logout') }}">
+                                            <i class="fa fa-sign-out" aria-hidden="true"></i> Deconnection
+                                        </a>
+                                    </li>
+                                {% endif %}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </header>
+        {% endblock %}
         {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
     </body>
 </html>

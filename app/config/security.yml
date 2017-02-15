@@ -3,22 +3,41 @@
 security:
 
     # http://symfony.com/doc/current/security.html#b-configuring-how-users-are-loaded
+    encoders:
+
+        AppBundle\Entity\User: bcrypt
+
     providers:
-        in_memory:
-            memory: ~
+
+        database_users:
+            entity: { class: AppBundle:User, property: username }
 
     firewalls:
         # disables authentication for assets and the profiler, adapt it according to your needs
-        dev:
-            pattern: ^/(_(profiler|wdt)|css|images|js)/
-            security: false
+        secured_area:
 
-        main:
-            anonymous: ~
-            # activate different ways to authenticate
+            pattern: ^/
 
-            # http_basic: ~
-            # http://symfony.com/doc/current/security.html#a-configuring-how-your-users-will-authenticate
+            anonymous: true
 
-            # form_login: ~
-            # http://symfony.com/doc/current/cookbook/security/form_login_setup.html
+            # This allows the user to login by submitting a username and password
+            # Reference: http://symfony.com/doc/current/cookbook/security/form_login_setup.html
+            form_login:
+
+                check_path: blog_login
+
+                login_path: blog_login
+
+                csrf_token_generator: security.csrf.token_manager
+                
+                default_target_path: admin_index
+
+            logout:
+                # The route name the user can go to in order to logout
+                path: blog_logout
+                # The name of the route to redirect to after logging out
+                target: blog_home
+
+    access_control:
+
+        - { path: '^/admin', roles: ROLE_ADMIN }
